@@ -25,6 +25,8 @@ help: ## This help.
 # ──────────────────────────────────────────────────────────────────
 #
 
+run: ## run main file
+	@cd cmd && go run main.go
 
 build: ## build every things (-out="outputDir")
 	$(MAKE) .build.proto-go
