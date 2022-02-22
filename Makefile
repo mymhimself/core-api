@@ -73,9 +73,6 @@ analyze:
 .build.proto-go.prototool:
 	@echo "building using prototool"
 	cd . && sudo run -v "$(PWD):/src/app" -w "/src/app" uber/prototool:latest prototool generate . --walk-timeout 15s
-
-.build.proto-go.linter:
-	@sudo docker run --rm -v "$(CURDIR):$(CURDIR)" uber/prototool:latest prototool lint "$(CURDIR)" --walk-timeout 15s
 # ────────────────────────────────────────────────────────────────────────────────
 
 #
