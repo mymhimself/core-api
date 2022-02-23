@@ -8,7 +8,6 @@ import (
 	"github.com/mymhimself/core-api/internal/repository"
 	driver "gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"log"
 )
 
 type postgres struct {
@@ -18,7 +17,12 @@ type postgres struct {
 }
 
 func NewPostgres(cfg config.Postgres, dataProtocolCfg config.DataProtocol, logger logger.Logger) (repository.IPostgres, error) {
-	dsn := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s", cfg.Host, cfg.Username, cfg.DBName, cfg.Password)
+	dsn := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s",
+						cfg.Host, 
+						cfg.Username, 
+						cfg.DBName, 
+						cfg.Password)
+						
 	conn, err := gorm.Open(driver.Open(dsn), &gorm.Config{})
 	if err != nil {
 		return nil, repository.ErrDatabaseSetupFailed

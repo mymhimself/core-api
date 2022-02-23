@@ -1,0 +1,38 @@
+{
+    "dev": {
+      "app": {
+        "port": ":8081"
+      },
+      "authorization": {
+        "casbin": {
+          "model_path": "build/casbin/policy.csv",
+          "policy_path": "build/casbin/model.conf"
+        }
+      },
+      "authentication": {
+        "secret": "jwt@secret1400",
+        "access_token_expire_time": 10,
+        "refresh_token_expire_time": 43200
+      },
+      "database": {
+        "postgres": {
+          "username": "postgres",
+          "password": "postgres",
+          "db_name": "ticket",
+          "host": "localhost",
+          "port": "5432",
+          "ssl_mode": false,
+          "time_zone": "Asia/Tehran",
+          "charset": "utf8mb4",
+          "auto_migration": true
+        }
+      },
+      "data_protocol": {
+        "page_size": 10
+      }
+    },
+    "prod": {
+  
+    },
+    "is_prod": false
+  }
