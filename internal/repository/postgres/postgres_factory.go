@@ -11,7 +11,7 @@ import (
 )
 
 type postgres struct {
-	db              *gorm.DB
+	client              *gorm.DB
 	logger          logger.Logger
 	dataProtocolCfg config.DataProtocol
 }
@@ -22,11 +22,11 @@ func NewPostgres(cfg config.Postgres, dataProtocolCfg config.DataProtocol, logge
 						cfg.Username, 
 						cfg.DBName, 
 						cfg.Password)
-						
+
 	conn, err := gorm.Open(driver.Open(dsn), &gorm.Config{})
 	if err != nil {
 		return nil, repository.ErrDatabaseSetupFailed
 	}
 
-	return &postgres{db: conn, logger: logger, dataProtocolCfg: dataProtocolCfg}, nil
+	return &postgres{client: conn, logger: logger, dataProtocolCfg: dataProtocolCfg}, nil
 }

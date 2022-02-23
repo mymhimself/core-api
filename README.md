@@ -1,2 +1,2 @@
 # core-api
-template repository for rest api project written with Go.
+This is a template repository for REST api project written in Go.

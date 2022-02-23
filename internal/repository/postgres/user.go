@@ -17,3 +17,7 @@ func (p *postgres) DeleteUser(ctx *context.Context, id uint64) error {
 func (p *postgres) UpdateUser(ctx *context.Context, user *entities.User) error {
 	panic("not implemented")
 }
+
+func (p *postgres) GetUserByID(ctx *context.Context, id uint64) (*entities.User, error) {
+	panic("not implemented")
+}
