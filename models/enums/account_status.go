@@ -6,9 +6,9 @@ type AccountStatus int
 var mapAccountStatus map[int]string 
 
 const (
-	AccountStatusInvalid  = iota
-	AccountStatusActive
-	AccountStatusDeActive
+	AccountStatusInvalid AccountStatus = iota
+	AccountStatusActive AccountStatus
+	AccountStatusDeActive AccountStatus
 )
 
 
